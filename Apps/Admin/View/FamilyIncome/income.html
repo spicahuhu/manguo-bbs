@@ -1,0 +1,91 @@
+<extend name="Layout:base"/>
+
+<block name="header">
+    <script src="__PUBLIC__/jquery.tablesorter.min.js"></script>
+</block>
+
+<block name="main">
+    <div class="u-right">
+        <h3>家族收入</h3>
+        <div class="infor">
+            <div class="input-group">
+                <form class="form-inline search" name="searchform" method="post">
+                    <div class="form-group">
+                        <label for="month">时间： </label>
+                        <input type="text" class="form-control pull-right input-sm" name="month" style="width:100px" id="month" placeholder="2016-08" value="<?php echo I('month');?>"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="star_id">主播ID：</label>
+                        <input type="text" class="form-control pull-right input-sm" name="star_id" style="width:100px" id="star_id" value="<?php echo I('star_id')?>"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="nickname">昵称：</label>
+                        <input type="text" class="form-control pull-right input-sm" name="nickname" style="width:100px" id="nickname" value="<?php echo I('nickname')?>"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">姓名：</label>
+                        <input type="text" class="form-control pull-right input-sm" name="name" style="width:100px" id="name" value="<?php echo I('name')?>"/>
+                    </div>
+                    &nbsp;&nbsp;
+                    <button class="btn btn-primary" type="submit" onclick="return search_submit('search');"> 查 询 </button>
+                    <button class="btn btn-info" type="submit" onclick="return search_submit('export');"> 导出数据 </button>
+                </form>
+                <script type="text/javascript">
+                    function search_submit(action){
+                        var url = action == 'export' ? "<?php echo U('/insExport');?>":"<?php echo U('/ins');?>";
+                        $('form[name=searchform]').attr('action', url);
+                        $('form[name=searchform]').submit();
+                    }
+                </script>
+            </div>
+            <div class="table-content">
+                <a href="javascript:void(0);" class="btn btn-default btn-sorter" s="4">按结算收入排序</a><p></p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">家族收入列表</div>
+                    <table class="table table-hover taber-striped table-bordered" style="text-align: center;" id="sorttable">
+                        <thead>
+                        <tr>
+                            <th>主播ID</th>
+                            <th>主播昵称</th>
+                            <th>姓名</th>
+                            <th>收获打赏星愿(月份内)</th>
+                            <th>预期结算收入(元)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($datas as $data){?>
+                        <tr>
+                            <td><?php echo $data['star_id']?></td>
+                            <td><?php echo $data['nickname']?></td>
+                            <td><?php echo $data['name']?></td>
+                            <td><?php echo $data['coins']?></td>
+                            <td><?php echo number_format($data['expected_income'],2)?></td>
+                        </tr>
+                        <?php }?>
+                        </tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>累计结算收入</td>
+                            <td><?php echo number_format($sum_income,2).'元';?></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="pages">
+                    <?php echo $page;?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $('.btn-sorter').click(function(){
+                var s = $(this).attr('s');
+                var t=$("thead tr").children();
+                $(t[s]).trigger("click");
+            });
+            $('#sorttable').tablesorter({headers:{0:{sorter:false},1:{sorter:false},2:{sorter:false},3:{sorter:false},8:{sorter:false},9:{sorter:false},10:{sorter:false}}});
+        });
+    </script>
+</block>

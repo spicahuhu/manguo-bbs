@@ -1,0 +1,86 @@
+<extend name="Layout:base"/>
+
+<block name="header">
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/formvalidator.js" charset="UTF-8"></script>
+</block>
+
+<block name="main">
+    <div class="u-right">
+        <h3>家族信息</h3>
+        <div class="infor">
+            <form name="editFamily" method="post" action="<?php echo U('/editMain')?>">
+            <dl class="dl-horizontal dt-style edit-form-style">
+                <dt>家族名称：</dt>
+                <div class="col-sm-4"><input type="text" name="info[name]" class="form-control " value="<?php echo $data['name']?>"/></div>
+                <dt>家族ID：</dt>
+                <div class="col-sm-4"><input type="text" name="info[id]" readonly class="form-control" value="<?php echo $data['id']?>"/></div>
+                <dt>家族主播人数：</dt>
+                <div class="col-sm-4"><input type="text" readonly class="form-control" value="<?php echo ($data['count']==0)? '无': $data['count'].'人';?>"/></div>
+                <dt>默认抽成比例：</dt>
+                <div class="col-sm-4 "><span class="textalign">结算收入：星愿值 &nbsp; * </span><div class="col-sm-6 pull-right"><input type="text" name="info[bonus]" placeholder="50%" class="form-control" value="<?php echo $data['bonus']?>"/></div></div>
+                <dt>族长姓名：</dt>
+                <div class="col-sm-4"><input type="text" name="info[patriarch_name]"  class="form-control" value="<?php echo $data['patriarch_name']?>"/></div>
+                <dt>族长电话：</dt>
+                <div class="col-sm-4"><input type="text" name="info[patriarch_phone]"  class="form-control" value="<?php echo $data['patriarch_phone']?>"/></div>
+                <dt>银行卡账号：</dt>
+                <div class="col-sm-4"><input type="text" name="info[bank_account]"  class="form-control" value="<?php echo $data['bank_account']?>"/></div>
+                <dt>所属银行：</dt>
+                <div class="col-sm-4 " >
+                    <div class="input-group">
+                    <select name="info[bank_name]" class="form-control"  id="otherSelect">
+                        <?php foreach($banks as $key=>$bank) {?>
+                        <option value="<?php echo $key;?>" <?php if($data['bank_name'] == $key) echo "selected";?> ><?php echo $bank;?></option>
+                        <?php }?>
+                        <option value="other" class="pull-left" <?php if(!in_array($data['bank_name'],array_keys($banks))) echo "selected"; ?>> 其他 </option>
+                    </select>
+                    <?php if(!in_array($data['bank_name'],array_keys($banks))){?>
+                    <input type="text" name="info[bank_name]" class="form-control" style="width:150px;" value="<?php echo $data['bank_name']?>"/>
+                    <?php }?>
+                    </div>
+                </div>
+                <dt>银行卡姓名：</dt>
+                <div class="col-sm-4"><input type="text" name="info[bank_user]"  class="form-control" value="<?php echo $data['bank_user']?>"/></div>
+                <dt>支付宝账号：</dt>
+                <div class="col-sm-4"><input type="text" name="info[alipay_id]"  class="form-control" value="<?php echo $data['alipay_id']?>"/></div>
+                <dt>支付宝姓名：</dt>
+                <div class="col-sm-4"><input type="text" name="info[alipay_name]"  class="form-control" value="<?php echo $data['alipay_name']?>"/></div>
+                <dt></dt>
+                <div class="btn-normal col-sm-5 col-sm-offset-1">
+                    <input type="submit" class="btn btn-primary" value="确定"/> &nbsp;&nbsp;
+                    <input type="reset" class="btn btn-default " value="取消"/>
+                </div>
+            </dl>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+            $("#name").formValidator({onshow:"请输入家族名称",onfocus:"请输入家族名称"}).inputValidator({min:1,empty:"请输入家族名称"}).defaultPassed();
+            $("#patriarch_id").formValidator({onshow:"请输入族长id",onfocus:"请输入族长id"}).inputValidator({min:1,empty:"请输入族长id"}).defaultPassed();
+            $('#patriarch_name').formValidator({onshow:'请输入族长姓名',onfocus:'请输入族长姓名'}).inputValidator({min:1,empty:"请输入族长姓名"}).defaultPassed();
+            $('#patriarch_phone').formValidator({onshow:'请输入族长电话',onfocus:'请输入族长电话'}).inputValidator({min:1,empty:"请输入族长电话"}).defaultPassed();
+            $('#bonus').formValidator({onshow:'请输入分成比例',onfocus:'请输入分成比例'}).inputValidator({min:1,empty:"请输入分成比例"}).defaultPassed();
+            $('#bank_account').formValidator({onshow:'请输入银行卡账号',onfocus:'请输入银行卡账号'}).inputValidator({min:1,empty:"请输入银行卡账号"}).defaultPassed();
+            $('#bank_user').formValidator({onshow:'请输入银行卡持有人姓名',onfocus:'请输入银行卡持有人姓名'}).inputValidator({min:1,empty:"请输入银行卡持有人姓名"}).defaultPassed();
+            $('#alipay_id').formValidator({onshow:'请输入支付宝账号',onfocus:'请输入支付宝账号'}).inputValidator({min:1,empty:"请输入支付宝账号"}).defaultPassed();
+            $('#alipay_name').formValidator({onshow:'请输入支付宝名称',onfocus:'请输入支付宝名称'}).inputValidator({min:1,empty:"请输入支付宝名称"}).defaultPassed();
+            var checkVal = $('#otherSelect').val();
+            if(checkVal == 'other') {
+                $('#otherSelect').css('width','140px');
+            }
+        });
+
+        $('#otherSelect').change(function(){
+            var checkVal = $('#otherSelect').val();
+            if(checkVal == 'other') {
+                var str='<input type="text" name="info[bank_name]" class="form-control pull-right" placeholder=" 请输入银行名称" style="width:150px;"/>';
+                $('#otherSelect').css('width','140px');
+                $('#otherSelect').parent().append(str);
+            } else {
+                $('#otherSelect').siblings().remove();
+            }
+        });
+
+    </script>
+  </block>

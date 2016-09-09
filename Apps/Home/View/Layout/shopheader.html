@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+    <title>芒果社区 </title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/shop.css">
+    <block name="header"></block>
+</head>
+
+<body>
+<nav class="navbar navbar-default shop-header">
+        <div class="container" >
+            <div class="navbar-header">
+                <a href="<?php echo U('/index')?>" class="navbar-brand"><span class="glyphicon glyphicon-home"></span> 芒果社区</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?php echo U('/sLogin');?>">登录</a></li>
+                    <li><a href="<?php echo U('/sRegister')?>"><span style="color:red">注册</span></a></li>
+                    <li><a href="<?php echo U('/sOrders')?>">我的订单</a></li>
+                    <li><a href="<?php echo U('/help')?>">联系客服</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+    <block name="shopcontent"></block>
+    </div>
+
+
+
+
+
+
+
+<script src="__PUBLIC__/jquery-1.9.1.min.js"></script>
+<script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

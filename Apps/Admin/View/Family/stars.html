@@ -1,0 +1,153 @@
+<extend name="Layout:base"/>
+
+<block name="header">
+    <script src="__PUBLIC__/artdialog/jquery.artDialog.source.js?skin=default"></script>
+    <script src="__PUBLIC__/jquery.tablesorter.min.js"></script>
+    <style>
+        th.headerSortUp{
+            color:#919191;
+        }
+        th.headerSortDown{
+            color:#9FB6CD;
+        }
+    </style>
+</block>
+
+<block name="main">
+    <div class="u-right">
+        <h3>家族成员管理</h3>
+        <div class="infor">
+            <div class="input-group">
+                <form class="form-inline search" action="<?php echo U('/stars')?>" method="post">
+                    <div class="form-group">
+                        <label for="star_id">主播ID： </label>
+                        <input type="text" class="form-control pull-right input-sm" name="star_id" style="width:100px" value="<?php echo I('star_id')?>" id="star_id"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="nickname">昵称：</label>
+                        <input type="text" class="form-control pull-right input-sm" name="nickname" style="width:100px" value="<?php echo I('nickname')?>" id="nickname"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">姓名：</label>
+                        <input type="text" class="form-control pull-right input-sm" name="name" style="width:100px" value="<?php echo I('name')?>" id="name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">性别：</label>
+                        <select name="sex" class="form-control pull-right input-sm" style="width:100px;">
+                            <option value=" " <?php if(I('sex')=='') {echo 'selected';}?>>请选择</option>
+                            <option value="1" <?php if(I('sex')==1) {echo 'selected';}?>>男</option>
+                            <option value="2" <?php if(I('sex')==2) {echo 'selected';}?>>女</option>
+                            <option value="0" <?php if(I('sex')=='0') {echo 'selected';}?>>其他</option>
+                        </select>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name">是否禁播：</label>
+                        <select name="forbidden" class="form-control pull-right input-sm" style="width:100px;">
+                            <option value=" " <?php if(I('forbidden')=='') {echo 'selected';}?>>请选择</option>
+                            <option value="1" <?php if(I('forbidden')==1) {echo 'selected';}?>>是</option>
+                            <option value="0" <?php if(I('forbidden')=="0") {echo 'selected';}?>>否</option>
+                        </select>
+                    </div>&nbsp;&nbsp;
+                    <button class="btn btn-primary" type="submit"> 查 询 </button>
+                </form>
+
+            </div>
+            <div class="table-content">
+                <a href="javascript:void(0);" class="btn btn-default btn-sorter" s="4">按等级排序</a>
+                <a href="javascript:void(0);" class="btn btn-default btn-sorter" s="5">按星愿值</a>
+                <a href="javascript:void(0);" class="btn btn-default btn-sorter" s="6">按粉丝数</a>
+                <a href="javascript:void(0);" class="btn btn-default btn-sorter" s="7">按当月直播时长</a><p></p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">成员列表</div>
+                    <table class="table table-hover taber-striped table-bordered" style="text-align: center;" id="sorttable">
+                        <thead>
+                        <tr>
+                            <th>主播ID</th>
+                            <th>主播昵称</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>等级</th>
+                            <th>星愿值</th>
+                            <th>粉丝数</th>
+                            <th>当月有效直播时长</th>
+                            <th>是否禁播</th>
+                            <th>身份证</th>
+                            <th>手机号</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($datas as $data){ ?>
+                        <tr>
+                            <td><?php echo $data['star_id']?></td>
+                            <td><?php echo $data['nickname']?></td>
+                            <td><?php echo $data['name']?></td>
+                            <td><?php echo $data['sex']==1 ? '男' : ($data['sex']==2 ? '女': '其他');?></td>
+                            <td><?php echo $data['level']?></td>
+                            <td><?php echo $data['coins']?></td>
+                            <td><?php echo $data['fans']?></td>
+                            <td><?php echo $data['live_time']?></td>
+                            <td><?php echo ($data['status']==-1) ? '屏蔽': ($data['status']==0 ? '正常': '剩余禁播天数'.$data['status'])?></td>
+                            <td><?php echo $data['id_card']?></td>
+                            <td><?php echo $data['phone']?></td>
+                            <td><a href="javascript:void(0);" onclick="return editStars('<?php echo $data['family_id']?>','<?php echo $data['star_id']?>','<?php echo $data['name']?>','<?php echo $data['sex']?>','<?php echo $data['phone']?>');">修改</a></td>
+                        </tr>
+                        <?php }?>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="pages">
+                    <?php echo $page;?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function editStars(family_id,star_id,name,sex,phone) {
+            var url = "<?php echo U('/estars');?>";
+            art.dialog({
+                title: '主播信息修改',
+                content: '<div><form name="edithot" action="'+url+'" method="post">'+
+                        '<input type="hidden" name="family_id" value="'+family_id+'"/>'+
+                '<table cellpadding=0 cellspacing=0 class="editStarTable" >'+
+                '<tr>' +
+                '<td>主播ID：</td>'+
+                '<td><input name="star_id" value="'+star_id+'" class="form-control" readonly></td>'+
+                '</tr><tr>'+
+                '<td>姓名：</td>'+
+                '<td><input name="name" class="form-control" value="'+name+'"></td>'+
+                '</tr><tr>'+
+                '<td>性别：</td>' +
+                '<td><select name="sex" style="width:80px" class="form-control selectID" >' +
+                '<option value="1">男</option>'+
+                '<option value="2">女</option>'+
+                '<option value="0">其他</option>'+
+                '</select></td>'+
+                '</tr><tr>'+
+                '<td>联系电话：</td>'+
+                '<td><input type="text" name="phone" value="'+phone+'" class="form-control" ></td>'+
+                '</tr>'+
+                '</table></form></div>',
+                ok:function() {
+                    if($('input[name=star_id]').val() == '' || $('input[name=name]').val() == '' || $('input[name=sex]').val()=='' || $('input[name=phone]').val() =='') {
+                        return false;
+                    }
+                    $('form[name="edithot"]').submit();
+                },
+                cancelValue: '取消',
+                cancel:function (){}
+            }).show();
+            if(sex ==1){$('.selectID').val(1);};
+            if(sex ==2){$('.selectID').val(2);};
+            if(sex ==null || sex=='0'){$('.selectID').val(0);};
+        }
+        $(function(){
+            $('.btn-sorter').click(function(){
+                var s = $(this).attr('s');
+                var t=$("thead tr").children();
+                $(t[s]).trigger("click");
+            });
+           $('#sorttable').tablesorter({headers:{0:{sorter:false},1:{sorter:false},2:{sorter:false},3:{sorter:false},8:{sorter:false},9:{sorter:false},10:{sorter:false}}});
+        });
+    </script>
+</block>

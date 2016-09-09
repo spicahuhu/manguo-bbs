@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui" />
+    <link rel="shortcut icon" href="__PUBLIC__/Home/image/stars1.jpg" type="image/x-icon" />
+    <title>萤火直播登录</title>
+    <link type="text/css" href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="__PUBLIC__/jquery-1.9.1.min.js"></script>
+    <style>
+        body {
+            background:#2B2B4F;
+            width:100%;
+            color: #666;
+            font-size:14px;
+            font-family:  Arial, Microsoft Yahei, Helvetica, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container{ width:1200px; margin:0 auto;}
+        .header{ height:74px; background:#fff;}
+        .logo{ float:left; width:185px; height:66px; background:url(__PUBLIC__/Home/image/logo58.png)  no-repeat; margin-top:10px;}
+        .nav{ float:right;  margin-top:10px;}
+        .nav li{ height:64px; line-height:64px; float:left; padding:0 12px;}
+        .nav li a{ display:block; font-size:18px; color:#666; padding:0 10px;}
+        .nav li a:hover{ color:#666;}
+        .nav li.on a{color:#666;}
+
+        /*弹窗*/
+        .pc-pop-title2{ text-align:center; margin-bottom:10px; font-size:24px; font-weight:normal;color:white;}
+        .pc-pop-box2{ background:#37375D; text-align:left;border-radius:8px; width:500px; margin:10% auto 0; padding:30px; position:relative}
+        .pc-login-btn-box{ text-align:center; margin-top:15px;}
+        .pc-login-btn{ text-align:center; display:inline-block; height:40px; line-height:40px; width:90px; background:#ffd000; border:1px solid #333; border-radius:22px; font-size:18px; text-decoration:none; color:#333;}
+        .pc-login-btn-box p{ margin-top:10px;}
+        .pc-login-btn-box a{text-decoration:none;}
+        .pc-login-btn-box p a{text-decoration:none; color:#163aa6}
+        .pc-login-btn-box p a:hover{ color:#5273d5;}
+        .pc-login-btn-reset{background-color:white;margin-left:10px;}
+        label{height：34px;line-height:34px;}
+       .imgrefresh{padding-top:-50px;  }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <h2 class="logo"><span style="padding-left:60px;height:66px;line-height: 66px;"> 萤火直播</span></h2>
+        <ul class="nav">
+            <li class="on"><a href="http://star.kankan.com/" target="_blank">首页</a></li>
+            <li><a href="http://star.kankan.com/" target="_blank">app下载</a></li>
+            <li><a href="http://star.kankan.com/" target="_blank">关于我们</a></li>
+        </ul>
+    </div>
+</div>
+<div class="pc-pop-box2">
+    <h2 class="pc-pop-title2">萤火直播-家族系统登录</h2>
+    <form style="width:400px;padding:15px;" action="<?php echo U('Public/checkLogin')?>" method="post">
+        <div class="form-group">
+            <label for="account">用户名</label>
+            <input type="text" class="form-control pull-right" name="account" id="account" placeholder="请输入用户名" style="width:320px;">
+        </div>
+        <div class="form-group">
+            <label for="password">密  码</label>
+            <input type="password" class="form-control pull-right" name="password" id="password" placeholder="请输入密码" style="width:320px;">
+        </div>
+        <div class="form-group">
+            <label for="verify" class="pull-left" style="padding-right:10px;">验证码</label>
+            <input type="text" class="form-control" id="verify" name="verify" placeholder="请输入验证码" style="width:120px;">
+           <img width="100" class="pull-right" src="__CONTROLLER__/verify" id="verifyImg" onclick="refresh();"
+style="margin-top:-38px;margin-right:80px;"/><a href="#" style="text-decoration:underline;" id='verifyImg' onClick='refresh()'>看不清？换一张</a>
+        </div>
+        <span class="error_tips" style="color:red;padding-left:50px;"></span>
+        <div class="pc-login-btn-box">
+            <button type="button" class="pc-login-btn" onclick="check();">登录</button>
+            <button type="reset" class="pc-login-btn pc-login-btn-reset">取消</button>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    function refresh() {
+        document.getElementById('verifyImg').src = '__CONTROLLER__/verify/'+Math.random();
+    }
+    function check() {
+        var name = $('input[name=account]').val();
+        var pwd = $('input[name=password]').val();
+        var verify = $('input[name=verify]').val();
+        if(verify == '') {
+            $('.error_tips').html('请输入验证码!');
+        } else {
+            if(name=='' || pwd=='') {
+                $('.error_tips').html('用户名or密码不能为空!');
+            }else{
+                $('.error_tips').html('');
+                $.post("<?php echo U('Public/checkLogin')?>",{account:name,password:pwd,verify:verify},function(data){
+                    if(data.code==10001) {
+                        $('.error_tips').html(data.message);
+                    }else{
+                        window.location.href = data.data.redirect;
+                    }
+                });
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

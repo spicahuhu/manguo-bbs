@@ -1,0 +1,86 @@
+body,ul,li{
+    padding:0;
+    margin:0;
+    font-size:14px;
+    font-family:Arial, Microsoft Yahei, Helvetica, sans-serif;
+}
+ul,ol,dl,li{
+    list-style: none;
+}
+
+
+.shop-header{
+    height:20px;
+    min-height: 30px;
+}
+.shop-header .container{
+    height: 30px;
+    line-height: 30px;
+}
+.shop-header a:hover{
+
+}
+.navbar-header{
+    height: 30px;
+}
+.navbar-brand{
+    padding:2px 0;
+    height: 34px;
+}
+.navbar-nav>li>a {
+    padding:0px 10px;
+    line-height: 34px;
+    font-size: 10px;
+}
+.navbar-nav>li>a:hover{
+    text-decoration: underline;
+}
+.header-logo{
+    padding:2px 0;
+    position: relative;
+}
+.logo-p {
+    position: absolute;
+    top:8px;
+    left:100px;
+    color:red;
+}
+.logo-l{
+    top:30px;
+    color:#B5B5B5;
+}
+.logo-d{
+    top:60px;
+    color:#B5B5B5;
+}
+.search-h{
+   padding-top: 20px;
+}
+
+/***************left-menu******************/
+#left-menu {
+    padding: 20px 0;
+    background-color: #F6F6F6;
+}
+.cate-s{
+    background-color: #fff;
+}
+.cate-s .row{
+    margin:5px;
+}
+.cate-dl dt{
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+.cate-dl dd{
+    position: absolute;
+}
+.toolbar li{
+    float:left;
+    width:210px;
+    background:#ff464e;
+
+}
+.toolbar .f1{
+
+}

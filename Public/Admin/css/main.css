@@ -1,0 +1,115 @@
+body,ul,li,div{
+    padding:0;
+    margin:0;
+    font-family: Microsoft Yahei,Arial,Helvetica,sans-serif;
+}
+html,body,.container-fluid,.row{
+    height: 100%;
+}
+a:focus, a:hover{
+    text-decoration: none;
+    color:#5bc0de;
+}
+ul li{
+    list-style: none;
+}
+li a{
+    color:white;
+}
+
+.navbar-brand span{
+    color:white;
+}
+.left_menu{
+    background-color: #333F5C;
+    height:100%;
+}
+.container-fluid .row{
+    margin-top: -20px;
+}
+.left_menu ul li{
+    padding-top: 18px;
+}
+.glyphicon {
+    padding-left: 20px;
+}
+.kankan_header{
+    width:300px;
+    padding:8px;
+    margin:10px;
+    background-color: #2B3757;
+}
+.navbar-inverse{
+    background-color:#2B3757;
+}
+.navbar{
+    height:65px;
+}
+.navbar-brand,.navbar-nav>li>a{
+    line-height:33px;
+}
+.left-ul{
+    padding-top:20px;
+}
+/****main******/
+.main{
+    height:100%;
+    background-color:#FAFAFA;
+}
+
+/********������Ϣ*************/
+.infor{
+    padding: 20px;
+}
+.dt-style dt,dd{
+    font-weight:normal;
+    padding:5px;
+}
+.dt-style dd{
+    color:#575757;
+}
+.edit-fa{
+    margin-right:300px;
+}
+.float_right{
+    float:right;
+}
+.btn-normal{
+    padding-top:20px;
+}
+.edit-form-style dt{
+    padding:12px;
+}
+.textalign{
+    height:34px;
+    line-height:34px;
+}
+
+/*******��Ա����**********/
+.search label{
+    font-weight: normal;
+    height:30px;
+    line-height: 30px;
+}
+
+.table-content{
+    padding-top: 20px;
+}
+th{
+    text-align: center;
+}
+.editStarTable tr{
+    height:40px;
+}
+
+td a:hover{
+    color:darkslateblue;
+}
+
+/*分页*/
+#pages { padding:14px 0 10px;font-family:宋体; text-align:right}
+#pages a { display:inline-block; height:28px; line-height:28px; background:#fff; border:1px solid #e3e3e3; text-align:center; color:#333; padding:0 10px}
+#pages a.a1 { background:url(../../Public/Home/images/pages.png) no-repeat 0 5px; width:56px; padding:0 }
+#pages a:hover { background:#f1f1f1; color:#000; text-decoration:none; }
+#pages span { display:inline-block; height:28px;padding:0 10px; line-height:28px; background:#5a85b2; border:1px solid #5a85b2; color:#fff; text-align:center; }
+.page .noPage { display:inline-block; height:22px; line-height:22px; background:url(../img/icu/titleBg.png) repeat-x 0 -55px ; border:1px solid #e3e3e3; text-align:center; color:#a4a4a4; }

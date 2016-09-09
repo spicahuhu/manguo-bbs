@@ -1,0 +1,54 @@
+<extend name="Layout:base"/>
+
+<block name="header"></block>
+
+<block name="main">
+    <div class="u-right">
+        <h3>提现记录管理</h3>
+        <div class="infor">
+            <div>
+                <form class="form-inline search" action="<?php echo U('/casExport')?>" method="post">
+                    <div class="input-group">
+                        <input type="text" class="form-control pull-right" name="month" style="width:150px" id="month" value="<?php echo number_format($leave_money,2);?>(元)" disabled/>
+                        <input type="text" class="form-control" name="month" style="width:150px" id="month" value="可提现金额" disabled/>
+                    </div>
+                    &nbsp;&nbsp;
+                    <button class="btn btn-info" type="submit"> 导出数据 </button>
+                </form>
+            </div>
+            <div class="table-content">
+                <div class="panel panel-default">
+                    <div class="panel-heading">提现记录</div>
+                    <table class="table table-hover taber-striped table-bordered" style="text-align: center;">
+                        <tr>
+                            <th>提现ID</th>
+                            <th>提现时间</th>
+                            <th>提现金额(元)</th>
+                            <th>处理人</th>
+                            <th>提现渠道</th>
+                            <th>卡号</th>
+                            <th>持有人</th>
+                            <th>可用星币扣除</th>
+                        </tr>
+                        <?php foreach($datas as $data){?>
+                        <tr>
+                            <td><?php echo $data['id']?></td>
+                            <td><?php echo date('Y-m-d H:i',$data['withdraw_at'])?></td>
+                            <td><?php echo number_format($data['withdraw_money'],2)?></td>
+                            <td><?php echo $data['handler']?></td>
+                            <td><?php echo $data['channel']?></td>
+                            <td><?php echo $data['card']?></td>
+                            <td><?php echo $data['card_user']?></td>
+                            <td><a href="<?php echo U('Family/coinsDeducted',array('id'=>$data['id']))?>">点击下载</a></td>
+                        </tr>
+                        <?php }?>
+                    </table>
+                </div>
+                <div id="pages">
+                    <?php echo $pages;?>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</block>

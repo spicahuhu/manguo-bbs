@@ -1,0 +1,251 @@
+body {
+    width:100%;
+    color: #666;
+    font-size:14px;
+    font-family:  Arial, Microsoft Yahei, Helvetica, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    list-style: none;
+}
+.header{
+    height:70px;
+    background:#fff;
+    font-size:16px;
+    padding:10px 0;
+}
+.navbar-header a{
+    font-size: 20px;
+}
+
+.carousel-inner img{
+    margin:0 auto;
+}
+.tab1{
+    margin:30px 0;
+    padding-bottom: 50px;
+}
+.tab-h2{
+    letter-spacing: 1px;
+    color:#005962;
+}
+.tab-p{
+    letter-spacing: 1px;
+    color:#666;
+}
+
+.media-body{
+    text-align: left;
+}
+.col-md-6{
+    padding:20px;
+}
+/**************content************/
+.content{
+    padding-top: 70px;
+}
+.mserver-list{
+    padding-top: 30px;
+}
+.mserver-p{
+    padding:10px 0;
+}
+.HLM_mintop{
+    margin:0;
+    height:450px;
+    background: url(../images/light.jpg) repeat-x;
+    background-position:top;
+    background-size: cover;
+    background-color:#858389;
+    background-color:rgba(0,0,0,0.5);
+    opacity: 0.5;
+    text-align: left;
+}
+.HLM_mintop p{
+    font-family: STXingkai;
+    padding-top: 20px;
+    text-align: left;
+    color:#fff;
+    font-size: 20px;
+}
+.img-text{
+    margin:0 auto; width:20px;line-height: 24px;
+}
+.img-text-p{
+    margin-top:-50px;
+    padding-left: 80px;
+}
+.mserver-c{
+    padding:20px 0 10px 0;
+    font-size: 20px;
+    font-family: kaiti;
+    border-bottom: 1px solid #ccc;
+    color:#005962;
+    margin-bottom: 10px;
+}
+.mserver-news h4{
+    color:#004276;
+    font-family: Microsoft Yahei;
+}
+/*********msqure******************/
+.msqure-news{
+    margin:0;
+    height:100px;
+    background: url(../images/msqure/msqure-banner.png) repeat-x;
+    background-position:top;
+    background-color:#858389;
+    background-size: cover;
+}
+.msqure-news p{
+    font-family: STXingkai;
+    padding-top: 20px;
+    line-height: 60px;
+    color:#fff;
+    font-size: 20px;
+}
+
+.msqure-c img{
+    padding:0;
+    margin:0;
+    width:72px;
+    height: 72px;
+}
+.act-h{
+    padding-left:40px;
+}
+.act-h p {
+    text-align: left;
+    padding-left:60px;
+    font-family: STSong;
+    font-weight: bold;
+    color:#5959AB;
+}
+.act-h ul{
+    font-family: STXihei;
+    text-align: left;
+}
+.msqure-img img{
+    width:320px;
+}
+.msqure-p{
+    padding: 20px 0 5px 0;
+    font-size: 16px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+.msqure-info{
+    padding:5px 0 10px 0;
+}
+.msqure-info h4{
+    font-family: STXihei;
+    font-size: 20px;
+    font-weight: bold;
+    color:#3183db;
+}
+.msqure-info p{
+    text-align: left;
+}
+
+.msqure-o {
+    border:1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 20px;
+}
+.msqure-o h5{
+    margin-top:0;
+    height:30px;
+    border-radius: 5px 5px 0 0;
+    background-color: #00AEFF;
+    line-height: 30px;
+    color:white;
+}
+
+.msqure-o li{
+    text-align: left;
+}
+
+.msqure-soci img{
+    width:150px;
+}
+.msqure-soci .media-heading{
+    font-weight: bold;
+    color:#363636;
+}
+.msqure-soci .media-text{
+    font-size: 5px;
+}
+
+.msqure-hot {
+    margin-top:20px;
+    border:1px solid #ccc;
+    border-radius: 10px;
+}
+.msqure-hot h5{
+    margin-top:0;
+    background-color: #00AEFF;
+    height:30px;
+    line-height: 30px;
+    border-radius: 10px 10px 0 0;
+    color:white;
+}
+.msqure-hot ul{
+    padding-left: 10px;
+    text-align: left;
+}
+.msqure-hot li{
+    position:relative;
+    padding-bottom: 5px;
+}
+.msqure-hot img{
+    padding:0;
+    width:130px;
+}
+
+.msqure-hot .active{
+    position:absolute;
+    overflow: hidden;
+    top:20px;
+    left:160px;
+}
+.bookprice{
+    position:absolute;
+    top:50px;
+    left:160px;
+}
+.book-p{
+    position: absolute;
+    top:80px;
+    left:160px;
+}
+
+.num-p{
+    background-color: #BFEFFF;
+    padding:2px 6px;
+    margin-right: 10px;
+}
+
+/***************footer**********/
+#footer{
+    color:#AAAAAA;
+    border-top: 1px solid #ccc;
+    padding:15px 0;
+    margin-top:20px;
+    text-align: center;
+}
+
+.tab2{
+    background-color: #eee;
+    text-align: center;
+}
+.tab2 img,.tab3 img{
+    padding:5px 0;
+    width:400px;
+    height:300px;
+}
+.tab2-text,.tab3-text{
+    padding-top:100px;
+}
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="no">
+    <title>萤火直播 家族管理系统</title>
+
+    <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/Home/css/main.css" rel="stylesheet">
+    <script src="__PUBLIC__/jquery-1.9.1.min.js"></script>
+    <script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
+    <block name="header"></block>
+</head>
+<body>
+<nav class="navbar navbar-inverse nav-color" role="navigation">
+    <div class="navbar-header">
+        <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;<font color="white">萤火直播</font> <span style="font-size:14px;" >家族管理系统</span> </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right ">
+        <ul class="nav navbar-nav ">
+            <li class="dropdown" >
+                <a href="#" data-toggle="dropdown">Hi <?php echo session('user_name')?> &nbsp;<b class="caret"></b>&nbsp;&nbsp;&nbsp;</a>
+                <ul class="dropdown-menu ">
+                    <li><a href="<?php echo U('Index/changePwd')?>">修改密码</a></li>
+                    <li><a href="<?php echo U('Public/loginOut')?>">注销登陆</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-2 col-sm-2 left_menu">
+            <ul class="left-ul">
+                <li class="active">
+                    <a href="<?php echo U('Index/index')?>"><i class="glyphicon glyphicon-list"></i>&nbsp; 家族信息 </a>
+                </li>
+                <li class="active">
+                    <a href="<?php echo U('Family/stars')?>"><i class="glyphicon glyphicon-user"></i>&nbsp; 成员管理 </a>
+                </li>
+                <li>
+                    <a  href="<?php echo U('FamilyIncome/income')?>"> <i class="glyphicon glyphicon-jpy".></i>&nbsp; 家族收入</a>
+                </li>
+                <li>
+                    <a href="<?php echo U('Family/cashout')?>" ><i class="glyphicon glyphicon-th-list"></i>&nbsp; 提现记录</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="col-xs-10 col-sm-10 main">
+
+        </div>
+    </div>
+</div>
+<block name="footer"></block>
+</body>
+</html>

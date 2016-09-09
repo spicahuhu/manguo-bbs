@@ -1,0 +1,39 @@
+<extend name="Layout:base"/>
+
+<block name="header"></block>
+
+<block name="main">
+    <div class="u-right">
+        <h3>家族信息</h3>
+        <div class="infor">
+            <dl class="dl-horizontal dt-style">
+                <dt>家族名称：</dt>
+                <dd><?php echo $data['name']?> <a href="<?php echo U('/editMain')?>" class="edit-fa btn btn-primary float_right">编辑信息</a></dd>
+                <dt>家族ID：</dt>
+                <dd><?php echo $data['id']?></dd>
+                <dt>家族主播人数：</dt>
+                <dd><?php echo ($data['count']==0) ? '无' : $data['count'].'人';?></dd>
+                <dt>默认抽成比例：</dt>
+                <dd>结算收入：星愿值 * <?php echo $data['bonus']?></dd>
+                <dt>族长姓名：</dt>
+                <dd><?php echo $data['patriarch_name']?></dd>
+                <dt>族长电话：</dt>
+                <dd><?php echo $data['patriarch_phone']?></dd>
+                <dt>银行卡账号：</dt>
+                <dd><?php echo $data['bank_account']?></dd>
+                <dt style="line-height:34px;">所属银行：</dt>
+                <dd><select name="bank" class="form-control" style="width:140px;">
+                    <option value=""><?php echo ($banks[$data['bank_name']]) ? $banks[$data['bank_name']] : $data['bank_name'];?></option>
+                </select></dd>
+                <dt>银行卡姓名：</dt>
+                <dd><?php echo $data['bank_user']?></dd>
+                <dt>支付宝账号：</dt>
+                <dd><?php echo $data['alipay_id']?></dd>
+                <dt>支付宝姓名：</dt>
+                <dd><?php echo $data['alipay_name']?></dd>
+            </dl>
+
+        </div>
+    </div>
+
+</block>

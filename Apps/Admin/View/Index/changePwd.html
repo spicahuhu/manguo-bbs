@@ -1,0 +1,43 @@
+<extend name="Layout:base"/>
+
+<block name="header">
+    <script language="javascript" type="text/javascript" src="__PUBLIC__/formvalidator.js" charset="UTF-8"></script>
+</block>
+
+<block name="main">
+    <div class="u-right">
+        <h3>修改密码</h3>
+        <div class="infor">
+            <form name="sumbitForm" method="post" action="<?php echo U('Index/changePwd')?>">
+                <input type="hidden" name="id" value="<?php echo $logindata['id']?>"/>
+                <dl class="dl-horizontal dt-style edit-form-style">
+                    <dt>账号：</dt>
+                    <div class="col-sm-4" style="height: 44px;line-height: 44px;"><?php echo $logindata['account'];?></div>
+                    <dt>初始密码：</dt>
+                    <div class="col-sm-4"><input type="text" name="initpwd" id="initpwd" class="form-control "/></div>
+                    <dt>密码：</dt>
+                    <div class="col-sm-4"><input type="text" name="password" id="password" class="form-control "/></div>
+                    <dt>重复密码：</dt>
+                    <div class="col-sm-4"><input type="text" name="re_pwd" id="re_pwd" class="form-control"/></div>
+                    <dt>上次登录时间：</dt>
+                    <div class="col-sm-4" style="height: 44px;line-height: 44px;"><?php echo date('Y-m-d H:i:s', $logindata['last_login_time'])?></div>
+                    <dt>上次登录IP：</dt>
+                    <div class="col-sm-4" style="height:44px;line-height: 44px;"><?php echo $logindata['last_login_ip']?></div>
+                    <dt></dt>
+                    <div class="btn-normal col-sm-5 col-sm-offset-1">
+                        <input type="submit" class="btn btn-primary" value="确定"/> &nbsp;&nbsp;
+                        <input type="reset" class="btn btn-default " value="取消"/>
+                    </div>
+                </dl>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+            $("#password").formValidator({onshow:"",onfocus:"请输入密码"}).inputValidator({min:1,empty:"请输入密码"});
+            $("#re_pwd").formValidator({onshow:"",onfocus:"请重复密码"}).inputValidator({min:1,empty:"请重复密码"});
+        });
+
+    </script>
+</block>
