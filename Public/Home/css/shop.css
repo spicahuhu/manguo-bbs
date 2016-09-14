@@ -69,18 +69,124 @@ ul,ol,dl,li{
     margin:5px;
 }
 .cate-dl dt{
+    padding: 5px ;
     position: relative;
     border-bottom: 1px solid #ccc;
 }
 .cate-dl dd{
-    position: absolute;
+    float:right;
+    margin-top:-20px;
+}
+.toolbar{
+    padding-top: 30px;
 }
 .toolbar li{
     float:left;
     width:210px;
+    padding-left: 60px;
     background:#ff464e;
+    border-right: 1px solid #CD3700;
+    border-radius: 5px 5px 0 0;
+    height:35px;
+    line-height: 35px;
+}
+.toolbar li:hover{
+    background: red;
+}
+.toolbar .f1 a{
+    color:white;
+}
+.toolbar .f1 a:hover{
+    text-decoration: none;
+}
+.toolbar .act{
+    margin-left:120px;
+    background: red;
+}
+.cate-banner .carousel-inner{
+    height:300px;
+}
+
+.cate-act{
+    border:3px solid #ccc;
+    border-radius: 5px;
+    padding:5px;
+    margin-bottom: 10px;
+}
+.cate-act a{
+    text-decoration: none;
+}
+
+.cate-food{
+    padding-left: 100px;
+}
+
+.goods-list{
+    margin:0 auto;
+}
+.good-ful{
+    overflow: hidden;
+}
+.food-c{
+    margin: 5px auto;
+    overflow: hidden;
 
 }
-.toolbar .f1{
+.food-c ul{
+    float:left;
+    position: relative;
+    left:8%;
+}
 
+.food-c li{
+    background: #fff;
+    float: left;
+    width:285px;
+    position: relative;
+    margin:0 15px 15px 0;
+    border:#f6f6f6 solid 1px;
+}
+.goods-list li .pic-img img{
+    max-width: 280px;
+    max-height: 280px;
+}
+.good-list li .good-pic{
+    width:285px;
+    margin:0 auto;
+    position: relative;
+    height:285px;
+}
+.good-list li .good-title{
+    height: 18px;
+    line-height: 18px;
+    position: relative;
+    overflow: hidden;
+}
+.good-title .sold{
+    color:#999;
+    padding-top: 5px;
+    overflow: hidden;
+}
+.goods-list li .good-price {
+    width: 270px;
+    height: 48px;
+    line-height: 40px;
+    position: relative;
+    padding: 0 10px 0px 5px;
+    background: #fff;
+    z-index: 10;
+}
+.price-current{
+    color:red;
+    font-size: 16px;
+}
+.price-old{
+    color:#bbb;
+    text-decoration: line-through;
+}
+.good-price .buy{
+    color:#bbb;
+    position: relative;
+    top:-20px;
+    left:150px;
 }
