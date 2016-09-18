@@ -8,6 +8,9 @@ body {
     padding: 0;
 }
 
+a:hover{
+    text-decoration: none;
+}
 ul li{
     list-style: none;
 }
@@ -52,6 +55,10 @@ ul li{
 }
 .mserver-p{
     padding:10px 0;
+    color:#666;
+}
+.mserver-p:hover{
+    color:#9932CC;
 }
 .HLM_mintop{
     margin:0;
@@ -86,10 +93,33 @@ ul li{
     color:#005962;
     margin-bottom: 10px;
 }
-.mserver-news h4{
-    color:#004276;
+.mserver-news .mserver-c-q{
+    background:#eee;
     font-family: Microsoft Yahei;
+    border-radius: 15px;
+    padding:5px 8px;
 }
+.mserver-c-q h4{
+    font-size: 18px;
+    font-family: kaiti;
+    color:#005962;
+}
+.mserver-q ul{
+    padding:5px 20px;
+    text-align: left;
+    color:#337ab7;
+}
+.mserver-q p{
+    font-size: 10px;
+    color:#666;
+}
+.mserver-refer{
+    margin: 20px 0;
+}
+.mserver-news-list p{
+    text-align: left;
+}
+
 /*********msqure******************/
 .msqure-news{
     margin:0;
@@ -109,7 +139,7 @@ ul li{
 
 .msqure-c img{
     padding:0;
-    margin:0;
+    margin-top:15px;
     width:72px;
     height: 72px;
 }
@@ -240,6 +270,7 @@ ul li{
     background-color: #eee;
     text-align: center;
 }
+
 .tab2 img,.tab3 img{
     padding:5px 0;
     width:400px;
@@ -249,3 +280,6 @@ ul li{
     padding-top:100px;
 }
 
+.navbar-right li:hover{
+    background: #eee;
+}

@@ -20,7 +20,7 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<?php echo U('/mserver');?>">服务</a></li>
+                    <li ><a href="<?php echo U('/mserver');?>">服务</a></li>
                     <li><a href="<?php echo U('/msqure')?>">广场</a></li>
                     <li><a href="<?php echo U('/mshop')?>">商城</a></li>
                     <li><a href="<?php echo U('/attaches')?>">其他</a></li>
@@ -49,6 +49,16 @@
         $('#mycarousel').carousel({
             interval:4000,
             });
+
+        var url = "<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>";
+        $('.navbar-right a').each(function(){
+            var domain = "<?php echo $_SERVER['HTTP_HOST']?>";
+            var mainurl = $(this).attr('href');
+            if(url == domain+mainurl) {
+                $(this)[0].style.background = '#BFEFFF';
+            }
+        });
+
     });
 
 </script>
