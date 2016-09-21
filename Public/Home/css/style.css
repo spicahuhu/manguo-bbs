@@ -240,6 +240,7 @@ ul li{
     top:20px;
     left:160px;
 }
+
 .bookprice{
     position:absolute;
     top:50px;
@@ -284,43 +285,4 @@ ul li{
     background: #eee;
 }
 
-/********费用缴纳*********/
 
-.mserver-list .menu-fee{
-    padding: 0;
-    border: 1px solid #BFEFFF;
-}
-.menu-fee h4{
-    background: #BFEFFF;
-    margin: 0;
-    padding:10px;
-    height:45px;
-    line-height: 25px;
-    font-size: 16px;
-}
-.menu-fee ul{
-    padding:0;
-    margin:0;
-}
-.menu-fee li{
-    padding:2px;
-    border-top: 1px solid #eee;
-}
-.menu-fee li:hover{
-    background:#eee;
-}
-.item-li a{
-    height: 40px;
-    line-height: 40px;
-    display: block;
-}
-
-.notice{
-    color:#aaa;
-    font-size: 14px;
-    padding-left: 20px;
-}
-.fee-content{
-    text-align: left;
-    padding-top: 10px;
-}

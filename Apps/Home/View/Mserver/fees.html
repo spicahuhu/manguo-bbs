@@ -1,0 +1,75 @@
+<extend name="Layout:base"/>
+
+
+<block name="content">
+    <div class="container mserver-list">
+        <div class="row">
+            <div class="col-md-3 menu-fee">
+                <h4>便民缴费</h4>
+                <div class="menu-l">
+                    <ul>
+                        <li class="item-li"><a href="#"><span class="item-fee">水费</span></a></li>
+                        <li class="item-li"><a href="#"><span class="item-fee">电费</span></a></li>
+                        <li class="item-li"><a href="#"><span class="item-fee">燃气费</span></a></li>
+                        <li class="item-li"><a href="#"><span class="item-fee">宽带、网络费</span></a></li>
+                        <li class="item-li"><a href="#"><span class="item-fee">有线电视费</span></a></li>
+                        <li class="item-li"><a href="#"><span class="item-fee">物业费</span></a></li>
+                        <li class="item-li"><a href="#"><span class="item-fee">个人社保</span></a></li>
+                        <li class="item-li"><a href="#"><span class="item-fee">交通违章</span></a></li>
+                        <li class="item-li"><a href="#"><span class="item-fee">手机充值</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="nav-text">
+                    <h3 >水费缴纳</h3>
+                    <span class="notice">24小时服务，免手续费</span>
+                    <span class="links"><a href="#">缴费记录查看</a></span>
+                </div>
+                <div class="fee-content">
+                    <div class="fee-location">
+                        <div id="city">
+                            <select class="prov item-loc"></select> 省(直辖市)
+                            <select class="city item-loc" disabled="disabled"></select> 市(区)
+                        </div>
+                        <div class="fee-c">
+                            <form role="form" class="form-inline" >
+                                <div class="form-item">
+                                    <label>公用事业单位:</label>
+                                    <select id="changeCompany" class="form-control">
+                                        <option value="">请选择</option>
+                                        <option value="">广州南沙粤海水务有限公司</option>
+                                    </select>
+                                </div>
+                                <div class="form-item">
+                                    <label class="item-acc">户  号:</label>
+                                    <input type="text" class="form-control" name="account"/>
+                                    <span class="form-item-s"><a href="#">历史缴费账号</a></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+
+<block name="script-footer">
+    <script type="text/javascript" src="__PUBLIC__/Home/js/jquery.cityselect.js"></script>
+    <script type="text/javascript" src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js" charset="gb2312"></script>
+    <script type="text/javascript">
+        $('.item-li a').bind('click',function(){
+            $('.nav-text h3').text($(this).text());
+        });
+
+        $(function(){
+            $('#city').citySelect({
+                nodata:"none",
+                required:false,
+            });
+        });
+
+    </script>
+
+</block>

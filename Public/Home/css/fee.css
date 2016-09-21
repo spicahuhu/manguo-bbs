@@ -1,0 +1,118 @@
+ .mserver-list .col-md-3{
+    margin-top:10px;
+}
+.menu-fee{
+    padding: 0;
+    margin-top:40px;
+    border: 1px solid #BFEFFF;
+}
+.menu-fee h4{
+    background: #BFEFFF;
+    margin: 0;
+    padding:10px;
+    height:45px;
+    line-height: 25px;
+    font-size: 16px;
+}
+.menu-fee ul{
+    padding:0;
+    margin:0;
+}
+.menu-fee li{
+    padding:2px;
+    border-top: 1px solid #eee;
+}
+.menu-fee li:hover{
+    background:#eee;
+}
+.item-li a{
+    height: 40px;
+    line-height: 40px;
+    display: block;
+}
+
+.notice{
+    color:#aaa;
+    font-size: 14px;
+    padding: 0 20px;
+}
+.fee-content{
+    text-align: left;
+    padding-top: 10px;
+}
+#city{
+    background: #D1EEEE;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 10px;
+}
+.item-loc{
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.fee-c{
+    height:350px;
+    text-align: center;
+    margin:auto 0;
+    padding-top:100px;
+    border:1px solid #eee;
+}
+
+
+.fee-control{
+    height:100px;
+    background: #D1EEEE;
+    border:1px solid #eee;
+    padding-left: 10px;
+}
+
+.fee-control .fee-s{
+    font-size: 16px;
+
+}
+.fa{
+    display: inline-block;
+font: normal normal normal 14px/1 FontAwesome;
+font-size: inherit;
+text-rendering: auto;
+transform: translate(0);
+}
+.help{
+    border:1px solid #eee;
+    margin-top:20px;
+    padding-top: 0px;
+    text-align: left;
+}
+.help h4{
+    background: #BFEFFF;
+    height:45px;
+    line-height: 45px;
+    padding-left: 10px;
+    margin:0;
+}
+.help ul{
+    padding-left:10px;
+}
+.fee-c dt{
+    font-weight: normal;
+    padding: 10px 5px;
+
+}
+.fee-c dd{
+    text-align: left;
+    padding: 5px;
+}
+.fee-c .price{
+    margin-right:5px;
+}
+.fee-c .phone-price{
+    height:30px;
+    line-height: 30px;
+}

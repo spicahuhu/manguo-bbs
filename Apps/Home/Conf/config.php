@@ -18,11 +18,22 @@ return array(
         'msqure'=>'Msqure/index',
         'mshop'=>'Mshop/index',
         'attaches'=>'Other/index',
-        'server/fee'=>'Mserver/fee',
+        //社区服务模块
+        'server/fee'=>'ServerFee/feeindex',
+        'server/phoneFee'=>'ServerFee/phone',
+        'server/videoFee'=>'ServerFee/video',
+        'server/webFee'=>'ServerFee/web',
+        'server/homeFee'=>'ServerFee/home',
+        'server/socialInsuranceFee'=>'ServerFee/socialInsurance',
+        'server/trafficFee'=>'ServerFee/traffic',
+        'server/cards'=>'ServerFee/giftCards',
+
         'server/express'=>'Mserver/express',
         'server/hkeeping'=>'Mserver/houseKeeping',
         'server/recycle'=>'Mserver/recycle',
         'server/design'=>'Mserver/design',
         'server/other'=>'Mserver/attaches',
+
+
     ),
 );

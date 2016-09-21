@@ -1,0 +1,48 @@
+<extend name="Layout:serverFeeMenu"/>
+
+<block name="header">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/fee.css">
+</block>
+
+<block name="fee-content">
+        <div class="nav-text">
+            <h3 >物业费</h3>
+            <span class="notice">24小时服务，免手续费</span>
+            <span class="links"><a href="#">缴费记录查看</a></span>
+            <span class="notice">客服电话: 400-800-1230</span>
+        </div>
+        <div class="fee-content">
+            <div id="city">
+                <select class="prov item-loc"></select> 省(直辖市)
+                <select class="city item-loc" disabled="disabled"></select> 市(区)
+            </div>
+            <div class="fee-c" >
+
+
+            </div>
+        </div>
+
+</block>
+
+<block name="footer">
+     <footer id="footer"  style="height:40px">
+        <div class="container">
+            <p>Super-powered by Google ©2010-2016</p>
+            <p>芒果社区版权所有 如有需要请email至spicahuhu@163.com</p>
+        </div>
+    </footer>
+</block>
+
+<block name="script-footer">
+    <script type="text/javascript" src="__PUBLIC__/Home/js/jquery.cityselect.js"></script>
+    <script type="text/javascript" src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js" charset="gb2312"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#city').citySelect({
+                nodata:"none",
+                required:false,
+            });
+        });
+
+    </script>
+</block>
