@@ -10,4 +10,9 @@ class OtherController extends BaseController{
         }
 
 
+        public function content() {
+
+
+            $this->display();
+        }
 }

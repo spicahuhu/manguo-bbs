@@ -1,0 +1,97 @@
+<extend name="Layout:base"/>
+
+<block name="content">
+    <div class="container mserver-list">
+        <div class="row">
+                <div class="nav-text">
+                    <h3>快递服务</h3>
+                    <hr>
+                </div>
+                <div class="fee-content">
+                    <div class="fee-c" >
+                        <div class="web-fee-btn">
+                            <button class="btn btn-lg btn-info expressCheck">快递查询</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-lg btn-info expressOrder">预约寄件</button>
+                        </div>
+                    </div>
+                    <div class="express-check" style="width:500px;margin:0 auto;padding-top:20px;display:none;">
+                        <form role="form" action="">
+                            <dl class="dl-horizontal dt-style">
+                            <dt><label>公司名称:</label></dt>
+                            <dd><select id="expressCompany" class="form-control">
+                                    <option value="">--请选择--</option>
+                                    <option value="0"> 顺丰快递 </option>
+                                    <option value="1"> 圆通快递 </option>
+                                    <option value="2"> 申通快递 </option>
+                                    <option value="3"> 中通快递 </option>
+                                    <option value="4"> EMS快递 </option>
+                                    <option value="5"> 韵达快递 </option>
+                                    <option value="6"> 宅急送 </option>
+                                    <option value="7"> 天天快递 </option>
+                                    <option value="8"> 德邦物流 </option>
+                                </select>
+                            <dd>
+                            <dt><label>快递单号:</label></dt>
+                            <dd><input type="text" class="form-control" name="account"/></dd>
+                            <dt></dt>
+                            <dd><input type="submit" value="查询" class="btn btn-primary"/></dd></dl>
+                        </form>
+                    </div>
+                    <div class="express-location" style="display:none;">
+                        <div id="city">
+                            <select class="prov item-loc"></select> 省(直辖市)
+                            <select class="city item-loc" disabled="disabled"></select> 市(区)
+                        </div>
+                        <div class="fee-c">
+                            <form role="form" class="form-inline" >
+                                <div class="form-item">
+                                    <label>公用事业单位:</label>
+                                    <select id="changeCompany" class="form-control">
+                                        <option value="">请选择</option>
+                                        <option value="">广州南沙粤海水务有限公司</option>
+                                    </select>
+                                </div>
+                                <div class="form-item">
+                                    <label class="item-acc">户  号:</label>
+                                    <input type="text" class="form-control" name="account"/>
+                                    <span class="form-item-s"><a href="#">历史缴费账号</a></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</block>
+
+<block name="script-footer">
+    <script type="text/javascript" src="__PUBLIC__/Home/js/jquery.cityselect.js"></script>
+    <script type="text/javascript" src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js" charset="gb2312"></script>
+    <script type="text/javascript">
+        $('.item-li a').bind('click',function(){
+            $('.nav-text h3').text($(this).text());
+        });
+
+        $(function(){
+            $('#city').citySelect({
+                nodata:"none",
+                required:false,
+            });
+
+
+            $('.expressCheck').bind('click',function() {
+                $('.express-location')[0].style.display="none";
+                $('.express-check')[0].style.display = "block";
+            });
+
+            $('.expressOrder').bind('click',function(){
+                $('.express-check')[0].style.display="none";
+                $('.express-location')[0].style.display="block";
+
+            });
+        });
+
+
+    </script>
+
+</block>
